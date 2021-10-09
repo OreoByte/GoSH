@@ -15,10 +15,11 @@ func FUNC_DELETE(){
 }
 
 func FUNC_SLEEP(){
-    time.Sleep(SECONDS*time.Second) 
+    time.Sleep(SECONDS*time.Second)
 }
 
 func FUNC_HANDLE(conn net.Conn){
+	fmt.Fprintf(conn, "$ ")
     message, _ := bufio.NewReader(conn).ReadString('\n')
     if message == "DELETE\n" {
         FUNC_DELETE()
